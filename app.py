@@ -236,7 +236,7 @@ with col_main1:
         st.dataframe(df_filt_pl[ms.show_cols_table], hide_index=True)
     
     with st.expander('Korelacje'):
-        corr_matrix = df_filt[ms.columns_to_corr].corr()
+        corr_matrix = df_filt_pl[ms.columns_to_corr].corr()
         corr_matrix = corr_matrix.abs()
         np.fill_diagonal(corr_matrix.values, 0)
 
@@ -245,7 +245,7 @@ with col_main1:
             min_value=0.0, max_value=1.0, value=(0.0, 1.0),
         )
         cols_to_keep = corr_matrix.columns[((corr_matrix >= corr_threshold_min) & (corr_matrix <= corr_threshold_max)).any()]
-        filtered_corr_matrix = df[cols_to_keep].corr()
+        filtered_corr_matrix = df_filt_pl[cols_to_keep].corr()
 
         pt.plot_heatmap(filtered_corr_matrix)
 

@@ -74,11 +74,11 @@ columns_to_plot = [
 ]
 
 columns_to_corr = [
-    'age_mid',
-    'gender',
-    'edu_level_number',
-    'sweet_or_salty_number',
+    col_names_other_orig_pl['age_mid'],
+    col_names_other_orig_pl['gender'],
+    col_names_other_orig_pl['edu_level_number'],
+    col_names_other_orig_pl['sweet_or_salty_number'],
 ]
-columns_to_corr.extend(col_names_learn_pref_orig_pl.keys())
-columns_to_corr.extend(col_names_motivation_orig_pl.keys())
-columns_to_corr.extend(col_names_hobby_orig_pl.keys())
+columns_to_corr.extend(col_names_learn_pref_orig_pl.values())
+columns_to_corr.extend(col_names_motivation_orig_pl.values())
+columns_to_corr.extend(col_names_hobby_orig_pl.values())
