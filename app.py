@@ -190,32 +190,32 @@ with st.sidebar:
                 df_filt = df_filt[df_filt['fav_place'].isin(fav_place_sel)]
             
             if gender_sel:
-                df_filt = df_filt[df_filt['Płeć'].isin(gender_sel)]
+                df_filt = df_filt[df_filt['gender_txt'].isin(gender_sel)]
 
             if industry_sel:
-                df_filt = df_filt[df_filt['Branża'].isin(industry_sel)]
+                df_filt = df_filt[df_filt['industry'].isin(industry_sel)]
 
             df_filt = df_filt[(df_filt['year_exp_min'] >= year_exp_sel_min) & (df_filt['year_exp_max'] <= year_exp_sel_max)]
 
             if sos_sel:
-                df_filt = df_filt[df_filt[ms.columns_map['sweet_or_salty_pl']].isin(sos_sel)]
+                df_filt = df_filt[df_filt['sweet_or_salty_pl'].isin(sos_sel)]
 
             if hobby_sel:
-                hobby_val_sel = [ms.hobby_reverse[k] for k in hobby_sel]
+                hobby_val_sel = [ms.col_names_hobby_orig_pl_reverse[k] for k in hobby_sel]
                 if hobby_all_any == radio_options2[0]:#All
                     df_filt = df_filt[df_filt[hobby_val_sel].eq(1).all(axis=1)]
                 else:
                     df_filt = df_filt[df_filt[hobby_val_sel].eq(1).any(axis=1)]
 
             if motivation_key_sel:
-                mot_val_sel = [ms.motivation_reverse[k] for k in motivation_key_sel]
+                mot_val_sel = [ms.col_names_motivation_orig_pl_reverse[k] for k in motivation_key_sel]
                 if mot_all_any == radio_options2[0]:
                     df_filt = df_filt[df_filt[mot_val_sel].eq(1).all(axis=1)]
                 else:
                     df_filt = df_filt[df_filt[mot_val_sel].eq(1).any(axis=1)]
 
             if learn_key_sel:
-                learn_val_sel = [ms.learn_pref_reverse[k] for k in learn_key_sel]
+                learn_val_sel = [ms.col_names_learn_pref_orig_pl_reverse[k] for k in learn_key_sel]
                 if learn_all_any == radio_options2[0]:
                     df_filt = df_filt[df_filt[learn_val_sel].eq(1).all(axis=1)]
                 else:
